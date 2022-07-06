@@ -45,7 +45,7 @@ app.use("/api/users/dashboard", require("./routes/api/adminRoute"))
 app.use("/api/users", require("./routes/api/userRoute"))
 
 //  Views Routes
-app.get("/", (req, res) => res.render("index", { user: "Jim" }))
+app.get("/", (req, res) => res.render("index", { user: "Jim " }))
 app.get("/inventory", (req, res) => res.render("pages/inventory"))
 // app.get("/inventory/new", (req, res) => res.render("pages/upload"))
 // app.get("/inventory/edit", (req, res) => res.render("pages/inventory/update"))
