@@ -1,10 +1,10 @@
 // Express
-const express = require('express')
+const express = require("express")
 const router = express.Router()
 
 // Middleware
-const upload = require('../../middleware/multer')
-const protect = require('../../middleware/authMiddleware')
+const upload = require("../../middleware/multer")
+const protect = require("../../middleware/authMiddleware")
 
 // Routes
 const {
@@ -13,15 +13,15 @@ const {
   createListing,
   updateListing,
   deleteListing,
-} = require('../../controller/inventoryController')
+} = require("../../controller/inventoryController")
 
-//  extend route '/api/catalog'
+//  extend route '/api/inventory'
 router
-  .route('/')
+  .route("/")
   .get(allListings)
-  .post(protect, upload.any('image'), createListing)
+  .post(protect, upload.any("image"), createListing)
 router
-  .route('/:id')
+  .route("/:id")
   .get(singleListing)
   .patch(updateListing)
   .delete(deleteListing)

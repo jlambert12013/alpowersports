@@ -1,18 +1,14 @@
 require("dotenv").config()
 require("colors")
 
-//  Config
+//  Config and Paths
 const URI = process.env.URI
 const PORT = process.env.PORT
 
 // Paths
 const path = require("path")
-
-// Root Paths
 const ROOT = path.join(__dirname)
 const VIEWS = path.join(ROOT, "views")
-const UPLOAD = path.join(VIEWS, "upload.html")
-const DASHBOARD = path.join(VIEWS, "dashboard.html")
 
 //  Express
 const express = require("express")
@@ -27,6 +23,8 @@ app.use(
 )
 
 // View Engine Setup
+app.set("view engine", "ejs")
+app.set("views", VIEWS)
 app.use(express.static(VIEWS))
 
 //  Error Handling
@@ -47,9 +45,14 @@ app.use("/api/users/dashboard", require("./routes/api/adminRoute"))
 app.use("/api/users", require("./routes/api/userRoute"))
 
 //  Views Routes
-// app.get("/", (req, res) => res.render("index"))
-app.get("/upload", (req, res) => res.sendFile(UPLOAD))
-app.get("/", (req, res) => res.sendFile(DASHBOARD))
+app.get("/", (req, res) => res.render("index", { user: "Jim" }))
+app.get("/inventory", (req, res) => res.render("pages/inventory"))
+// app.get("/inventory/new", (req, res) => res.render("pages/upload"))
+// app.get("/inventory/edit", (req, res) => res.render("pages/inventory/update"))
+// app.get("/inventory/delete", (req, res) => res.render("pages/inventory/delete"))
+// app.get("/dashboard", (req, res) => res.render("pages/dashboard"))
+// app.get("/users/login", (req, res) => res.render("pages/login"))
+// app.get("/404", (req, res) => res.render("pages/nopage"))
 
 // Server
 app.listen(PORT, () => {
