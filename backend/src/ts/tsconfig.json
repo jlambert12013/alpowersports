@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es3",
+    "target": "es5",
+    "module": "commonjs",
+    "explainFiles": true,
     "rootDir": "./",
-    "outDir": "../../public/js",
+    "outDir": "../../views/js",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,

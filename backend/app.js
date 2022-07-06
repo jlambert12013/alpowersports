@@ -7,9 +7,12 @@ const PORT = process.env.PORT
 
 // Paths
 const path = require("path")
+
+// Root Paths
 const ROOT = path.join(__dirname)
-const PUBLIC = path.join(ROOT, "public")
-const UPLOAD = path.join(PUBLIC, "upload.html")
+const VIEWS = path.join(ROOT, "views")
+const UPLOAD = path.join(VIEWS, "upload.html")
+const DASHBOARD = path.join(VIEWS, "dashboard.html")
 
 //  Express
 const express = require("express")
@@ -24,7 +27,7 @@ app.use(
 )
 
 // View Engine Setup
-app.use(express.static(PUBLIC))
+app.use(express.static(VIEWS))
 
 //  Error Handling
 const errorHandler = require("./middleware/errorHandler")
@@ -44,8 +47,9 @@ app.use("/api/users/dashboard", require("./routes/api/adminRoute"))
 app.use("/api/users", require("./routes/api/userRoute"))
 
 //  Views Routes
-app.get("/", (req, res) => res.render("index"))
+// app.get("/", (req, res) => res.render("index"))
 app.get("/upload", (req, res) => res.sendFile(UPLOAD))
+app.get("/", (req, res) => res.sendFile(DASHBOARD))
 
 // Server
 app.listen(PORT, () => {
