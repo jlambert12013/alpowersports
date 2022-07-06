@@ -1,0 +1,14 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "javascript.format.semicolons": "remove",
+  "files.exclude": {
+    "**/.vs*": true
+  },
+  "editor.suggest.showFolders": true,
+  "explorer.compactFolders": false,
+  "workbench.editor.showIcons": true,
+  "breadcrumbs.icons": false,
+  "editor.inlayHints.enabled": "off",
+  "javascript.suggestionActions.enabled": false
+}
